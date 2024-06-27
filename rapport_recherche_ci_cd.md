@@ -15,31 +15,31 @@ Ce rapport vise à expliquer les concepts de CI/CD, à présenter les outils les
 ### Intégration Continue (Continuous Integration - CI)
 
 **C'est quoi**
-Pratique de développement logiciel
-Intégration fréquente du code dans un dépôt partagé
-Vérification par construction et tests automatisés
+- Pratique de développement logiciel
+- Intégration fréquente du code dans un dépôt partagé
+- Vérification par construction et tests automatisés
 
 **Aspects Clés**
-Intégration fréquente : commits multiples par jour
-Construction et tests automatisés : outils comme Jenkins, Travis CI, CircleCI
-Retour d'information immédiat : alertes en cas d'échec
-Contrôle de version : utilisation de VCS (ex. Git)
+- Intégration fréquente : commits multiples par jour
+- Construction et tests automatisés : outils comme Jenkins, Travis CI, CircleCI
+- Retour d'information immédiat : alertes en cas d'échec
+- Contrôle de version : utilisation de VCS (ex. Git)
 
 **But** : 
-Détecter les problèmes tôt
-Réduire les conflits de fusion
-Améliorer la collaboration entre les développeurs.
+- Détecter les problèmes tôt
+- Réduire les conflits de fusion
+- Améliorer la collaboration entre les développeurs.
 
 **Avantages**
-Détection précoce erreurs
-Amélioration de la collaboration
-Cycles de publication plus rapides
-Qualité du code améliorée
+- Détection précoce erreurs
+- Amélioration de la collaboration
+- Cycles de publication plus rapides
+- Qualité du code améliorée
 
 **Défis**
-Configuration initiale complexe
-Maintenance continue nécessaire
-Gestion de la complexité dans les grands projets
+- Configuration initiale complexe
+- Maintenance continue nécessaire
+- Gestion de la complexité dans les grands projets
 
 
 ## Historique et évolution
