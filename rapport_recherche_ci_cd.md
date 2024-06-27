@@ -3,16 +3,44 @@
 
 ## Introduction
 
-L'objectif de ce rapport est de fournir une compréhension claire et accessible des concepts de CI/CD (Continuous Integration/Continuous Deployment) pour les développeurs front-end. CI/CD est une pratique essentielle qui automatise le processus de développement, de test et de déploiement, améliorant ainsi la qualité et la rapidité des livraisons de logiciels.
+Dans le monde du développement logiciel moderne, la rapidité et la fiabilité des livraisons de code sont devenues cruciales. 
+Les utilisateurs finaux s'attendent à des mises à jour fréquentes et sans interruption, tandis que les développeurs doivent jongler avec des cycles de développement rapides et des exigences de qualité élevées. 
+C'est ici que les pratiques de CI/CD (Continuous Integration/Continuous Deployment) entrent en jeu. 
+La CI/CD représente une série de principes et de pratiques permettant d'automatiser et d'optimiser les processus de développement, de test et de déploiement du code. 
+Pour les développeurs front-end, comprendre et intégrer ces concepts est essentiel pour garantir une collaboration fluide avec les équipes back-end et assurer des livraisons de logiciels efficaces et de haute qualité. 
+Ce rapport vise à expliquer les concepts de CI/CD, à présenter les outils les plus populaires, et à illustrer leur importance à travers des exemples concrets et des configurations pratiques. 
 
 ## Concepts de CI/CD
 
 ### Intégration Continue (Continuous Integration - CI)
 
-L'intégration continue est une pratique de développement où les développeurs intègrent régulièrement leur code dans un dépôt centralisé. Chaque intégration est vérifiée par une compilation automatique, permettant de détecter rapidement les erreurs.
+**C'est quoi**
+Pratique de développement logiciel
+Intégration fréquente du code dans un dépôt partagé
+Vérification par construction et tests automatisés
 
-- **But** : Détecter les problèmes tôt, réduire les conflits de fusion, et améliorer la collaboration entre les développeurs.
-- **Processus** : Inclut l'exécution de tests automatisés et la vérification du code.
+**Aspects Clés**
+Intégration fréquente : commits multiples par jour
+Construction et tests automatisés : outils comme Jenkins, Travis CI, CircleCI
+Retour d'information immédiat : alertes en cas d'échec
+Contrôle de version : utilisation de VCS (ex. Git)
+
+**But** : 
+Détecter les problèmes tôt
+Réduire les conflits de fusion
+Améliorer la collaboration entre les développeurs.
+
+**Avantages**
+Détection précoce erreurs
+Amélioration de la collaboration
+Cycles de publication plus rapides
+Qualité du code améliorée
+
+**Défis**
+Configuration initiale complexe
+Maintenance continue nécessaire
+Gestion de la complexité dans les grands projets
+
 
 ## Historique et évolution
 
