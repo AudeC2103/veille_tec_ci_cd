@@ -18,8 +18,8 @@ L'intégration continue est une pratique de développement où les développeurs
 
 ### Origines de l'Intégration Continue (CI)
 
-- **Années 1990 - Pratiques de Développement Traditionnelles et XP:**
-  - Avant l'adoption généralisée des méthodes agiles et de l'intégration continue, le développement logiciel suivait souvent des modèles en cascade. Les développeurs travaillaient sur des branches distinctes pendant de longues périodes avant d'intégrer leurs modifications dans la branche principale.
+- **Années 1990 - Pratiques de Développement Traditionnelles et début de l'Extreme Programming (XP):**
+  - Avant l'adoption généralisée des méthodes agiles et de l'intégration continue, le développement logiciel suivait souvent des modèles en cascade. Les développeurs travaillaient sur des branches distinctes pendant de longues périodes avant d'intégrer leurs modifications dans la branche principale. Le rythme de mise en production d’une application était d’environ une mise à jour majeure tous les 3 à 6 mois.
   - **1991 :** Grady Booch introduit le concept d'intégration continue dans son livre "Object-Oriented Analysis and Design with Applications". Bien que la pratique ne soit pas encore formalisée, l'idée d'intégrer régulièrement les changements de code est suggérée.
   - **1996 :** Kent Beck développe l'Extreme Programming (XP) pendant qu'il travaillait sur le projet Chrysler Comprehensive Compensation System (C3). XP est une méthodologie de développement logiciel agile, fondée sur des principes qui visent à améliorer la qualité du logiciel et la réactivité aux changements. Kent Beck a ensuite publié son livre "Extreme Programming Explained" en 1999, ce qui a popularisé la méthodologie et l'a introduite à un public plus large. Voici les principaux aspects de l'XP :
     - **Itérations Courtes :** XP encourage des cycles de développement très courts, appelés itérations, généralement d'une à deux semaines. À la fin de chaque itération, une verson fonctionnelle du logiciel est produite.
@@ -44,26 +44,43 @@ Ces valeurs ont favorisé une approche plus flexible, itérative et collaborativ
     - CruiseControl, l'un des premiers outils d'intégration continue open-source, est lancé par ThoughtWorks. Cet outil aide les équipes à automatiser le processus de build et à intégrer régulièrement les changements de code.
   - **2005 :** Hudson, un autre outil d'intégration continue open-source, est créé. Il deviendra plus tard Jenkins après un fork en 2011 en raison de divergences de la communauté avec Oracle, qui avait acquis Sun Microsystems (propriétaire initial de Hudson). Il est devenu l'un des outils les plus populaires pour l'intégration continue grâce à sa facilité d'utilisation et à sa flexibilité.
 
-- **Années 2010 -  :**
+- **Années 2010 - Innovations clés  :**
   -  **2010 :** Travis CI est lancé, offrant une solution d'intégration continue basée sur le cloud, ce qui facilite l'adoption de la CI pour les projets open-source hébergés sur GitHub
   -  **2011 :** GitLab CI est introduit, intégrant l'intégration continue directement dans la plateforme de gestion de code GitLab
   -  **2014 :** CircleCI est lancé, offrant une autre solution d'intégration et de déploiement continu (CI/CD) basée sur le cloud.
  
-- **Années 2020 -  :**
-  - **2020** : GitHub Actions est largement adopté, permettant aux développeurs d'automatiser leurs workflows directement à partir de GitHub, y compris les pipelines CI/CD. 
+- **Années 2020 - Progression Technologique :**
+  - **2020 :**
+    - GitHub Actions est largement adopté, permettant aux développeurs d'automatiser leurs workflows directement à partir de GitHub, y compris les pipelines CI/CD.
+    - L'intégration continue s'est étendue à Kubernetes, facilitant des déploiements plus rapides et une gestion améliorée des environnements de développement.
+  - **2021 :** améliorations des outils existant : Jenkins, GitLab CI/CD, CircleCI et Travis CI ont tous continué à évoluer avec des fonctionnalités améliorées et une meilleure intégration cloud.
+  - **2022 :** Focus sur la Sécurité : Une augmentation des efforts pour intégrer la sécurité dans les pipelines CI/CD, avec l'adoption de scanners de sécurité automatisés et de tests de vulnérabilité.
 
 ### Évolution vers le Déploiement Continu (CD)
 
+- **2009 :** **Adoption intiale** Jez Humble et David Farley introduise la notion de déploiement continu dans leur livre "Continuous Delivery".
 - **Années 2010 - CI/CD et DevOps :**
-  - Avec l'adoption croissante des pratiques CI, l'industrie a commencé à se concentrer sur le déploiement continu (CD). Le CD vise à automatiser non seulement l'intégration, mais aussi le déploiement du code en production.
-  - Le mouvement DevOps, qui a émergé à la fin des années 2000 et au début des années 2010, a joué un rôle crucial dans la promotion de CI/CD. DevOps met l'accent sur la collaboration entre les équipes de développement et d'exploitation pour livrer des logiciels plus rapidement et de manière plus fiable.
+  Avec l'adoption croissante des pratiques CI, l'industrie a commencé à se concentrer sur le déploiement continu (CD). Le CD vise à automatiser non seulement l'intégration, mais aussi le déploiement du code en production.
+  - **2010 :** Développement de pratiques de déploiement continu avec l'émergence de plateformes cloud comme AWS Elastic Beanstalk.
+  - **2011 :** GitLab intègre le déploiement continu dans sa plateforme GitLab CI/CD.
+  - **2014 :** Introduction de Docker, facilitant l'utilisation de conteneurs pour le déploiement de logiciels.
+    Le mouvement DevOps, qui a émergé au début des années 2010, a joué un rôle crucial dans la promotion de CI/CD. DevOps met l'accent sur la collaboration entre les équipes de développement et d'exploitation pour livrer des logiciels plus rapidement et de manière plus fiable.
   DevOps est une approche qui cherche à unifier le développement de logiciels et les opérations informatiques. Les principaux objectifs de DevOps sont :
-    - **Accélérer le cycle de développement :** Réduire le temps entre l'écriture d'un code et son déploiement en production.
-    - **Améliorer la qualité du logiciel :** Utiliser des pratiques de test automatisé et d'intégration continue pour identifier et corriger les problèmes plus tôt.
-    - **Renforcer la collaboration :** Promouvoir la communication et la coopération entre les équipes de développement et les opérations.
-    - **Augmenter la fiabilité :** Garantir que les systèmes sont robustes et performants, même lors de fréquents déploiements de nouvelles fonctionnalités.
+    - Accélérer le cycle de développement
+    - Améliorer la qualité du logiciel
+    - Renforcer la collaboration
+    - Augmenter la fiabilité
+- **Années 2020 - Progrès dans les Stratégies de Déploiement :**
+  - **2020 :** Adoption généralisée des pratiques de CD avec des outils comme Kubernetes, permettant une gestion plus automatisée et flexible des déploiements.
+  - **2021 :** Accent accru sur la sécurité dans les pipelines de déploiement continu, avec l'intégration de scanners de sécurité automatisés.
+  - **2022 :** Évolution vers des stratégies de déploiement plus sophistiquées comme le déploiement progressif et le rollback automatisé.
 
-\`\`\`yaml
+### Perspectives futures
+
+  - **Intelligence Artificielle et Machine Learning :** On prévoit que l'intégration de l'IA et du machine learning dans les pipelines CI/CD pourrait se développer pour optimiser les workflows et améliorer la qualité du code.
+  - **Expansion de l'Automatisation :** L'automatisation des pipelines CI/CD devrait continuer à croître, avec des innovations dans l'automatisation des tests, des déploiements et de la gestion des infrastructures.
+  - **Interopérabilité et Standardisation :** Une meilleure interopérabilité entre les outils CI/CD et une standardisation des pratiques pourraient simplifier l'adoption et l'utilisation de ces technologies pour les équipes de développement.
+
 # Exemple de configuration de Jenkins pour l'intégration continue
 pipeline {
     agent any
@@ -199,13 +216,11 @@ La mise en place de CI/CD permet d'améliorer significativement la qualité et l
 3. "GitHub Actions Documentation", [GitHub](https://docs.github.com/en/actions).
 4. "GitLab CI/CD Documentation", [GitLab](https://docs.gitlab.com/ee/ci/).
 
-## Ressources Supplémentaires
+## sources 
 
 - [CI/CD pour les débutants (Video)](https://www.youtube.com/watch?v=1h9_cB9mPT8)
 - [Tutoriel Jenkins](https://www.jenkins.io/doc/tutorials/)
 - [Tutoriel GitHub Actions](https://docs.github.com/en/actions/learn-github-actions)
 - [Tutoriel GitLab CI](https://docs.gitlab.com/ee/ci/tutorials/)
-
----
-
-*Note : Ce rapport est conçu pour être publié sur GitHub et peut être utilisé comme ressource de formation pour les développeurs front-end.*
+- [Atlassian](https://www.atlassian.com/fr/continuous-delivery/continuous-integration#:~:text=L'int%C3%A9gration%20continue%20(CI),et%20m%C3%AAme%20projet%20de%20d%C3%A9veloppement)
+- [qiminfo](https://www.qiminfo.ch/ci-cd/)
