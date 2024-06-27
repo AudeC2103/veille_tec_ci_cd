@@ -21,7 +21,7 @@ L'intégration continue est une pratique de développement où les développeurs
 - **Années 1990 - Pratiques de Développement Traditionnelles :**
   - Avant l'adoption généralisée des méthodes agiles et de l'intégration continue, le développement logiciel suivait souvent des modèles en cascade. Les développeurs travaillaient sur des branches distinctes pendant de longues périodes avant d'intégrer leurs modifications dans la branche principale.
 
-- **Fin des Années 1990 debut des années 2000- Manifesto Agile et XP :**
+- **Fin des Années 1990 debut des années 2000- Manifeste Agile et XP :**
   - Le développement agile a commencé à gagner en popularité avec la publication du Manifeste Agile en 2001. 
   En effet le Manifeste Agile, publié en 2001 par un groupe de développeurs de logiciels, a formalisé un ensemble de valeurs et de principes pour guider le développement logiciel agile. Les valeurs fondamentales du Manifeste Agile sont :
 
