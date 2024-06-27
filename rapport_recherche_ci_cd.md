@@ -18,50 +18,50 @@ L'intégration continue est une pratique de développement où les développeurs
 
 ### Origines de l'Intégration Continue (CI)
 
-- **Années 1990 - Pratiques de Développement Traditionnelles :**
+- **Années 1990 - Pratiques de Développement Traditionnelles et XP:**
   - Avant l'adoption généralisée des méthodes agiles et de l'intégration continue, le développement logiciel suivait souvent des modèles en cascade. Les développeurs travaillaient sur des branches distinctes pendant de longues périodes avant d'intégrer leurs modifications dans la branche principale.
-
-- **Fin des Années 1990 debut des années 2000- Manifesto Agile et XP :**
-  - Le développement agile a commencé à gagner en popularité avec la publication du Manifeste Agile en 2001. 
-  En effet le Manifeste Agile, publié en 2001 par un groupe de développeurs de logiciels, a formalisé un ensemble de valeurs et de principes pour guider le développement logiciel agile. Les valeurs fondamentales du Manifeste Agile sont :
-
-    - Individus et interactions plutôt que processus et outils.
-    - Logiciel opérationnel plutôt que documentation exhaustive.
-    - Collaboration avec le client plutôt que négociation de contrat.
-    - Répondre au changement plutôt que suivre un plan.
-
-Ces valeurs ont favorisé une approche plus flexible, itérative et collaborative du développement de logiciels, par opposition aux méthodes traditionnelles en cascade.
-  L'intégration continue a été fortement influencée par les méthodologies de développement agile, en particulier l'Extreme Programming (XP).
-  L'Extreme Programming (XP) est une méthodologie de développement logiciel agile, fondée sur des principes qui visent à améliorer la qualité du logiciel et la réactivité aux changements. Voici les principaux aspects de l'Extreme Programming :
-
-    - **Itérations Courtes :** XP encourage des cycles de développement très courts, appelés itérations, généralement d'une à deux semaines. À la fin de chaque itération, une version fonctionnelle du logiciel est produite.
-
+  - **1991 :** Grady Booch introduit le concept d'intégration continue dans son livre "Object-Oriented Analysis and Design with Applications". Bien que la pratique ne soit pas encore formalisée, l'idée d'intégrer régulièrement les changements de code est suggérée.
+  - **1996 :** Kent Beck développe l'Extreme Programming (XP) pendant qu'il travaillait sur le projet Chrysler Comprehensive Compensation System (C3). XP est une méthodologie de développement logiciel agile, fondée sur des principes qui visent à améliorer la qualité du logiciel et la réactivité aux changements. Kent Beck a ensuite publié son livre "Extreme Programming Explained" en 1999, ce qui a popularisé la méthodologie et l'a introduite à un public plus large. Voici les principaux aspects de l'XP :
+    - **Itérations Courtes :** XP encourage des cycles de développement très courts, appelés itérations, généralement d'une à deux semaines. À la fin de chaque itération, une verson fonctionnelle du logiciel est produite.
     - **Tests Unitaires :** Une pratique centrale de l'XP est l'écriture de tests unitaires automatisés avant même que le code ne soit écrit. Les tests sont exécutés régulièrement pour s'assurer que les modifications apportées n'introduisent pas de régressions.
-
     - **Programmation en Binôme :** Les développeurs travaillent en binômes, où l'un écrit le code tandis que l'autre observe, examine et offre des suggestions. Ce style favorise la collaboration, améliore la qualité du code et partage les connaissances au sein de l'équipe.
-
     - **Intégration Continue :** XP promeut l'intégration continue (CI), où les modifications de code sont intégrées fréquemment dans le système principal. Cela réduit les conflits d'intégration à long terme et permet une détection précoce des erreurs.
-
     - **Client Présent :** Un représentant du client est impliqué de manière active tout au long du processus de développement. Cela garantit que les besoins du client sont constamment pris en compte et que le logiciel développé répond efficacement aux exigences du marché.
-
     - **Refactoring Continu :** Le refactoring (la réorganisation du code sans en changer le comportement externe) est une pratique constante pour maintenir la flexibilité du code et améliorer sa lisibilité.
-
     - **Design Simplicity :** XP encourage la simplicité dans la conception du logiciel. Plutôt que de prévoir des fonctionnalités futures hypothétiques, l'accent est mis sur la création d'une solution qui répond immédiatement aux besoins présents.
-
     - **Collective Ownership :** Tous les membres de l'équipe sont responsables de l'ensemble du code base. Cela encourage la collaboration, la relecture de code et l'amélioration continue.
 
-- **Années 2000 - Adoption Initiale :**
-  - Des outils comme CruiseControl (outil d'intégration continue open-source conçu pour automatiser le processus de build et de test des projets logiciels lancé en 2001) ont été parmi les premiers à automatiser le processus de CI, permettant aux développeurs de configurer des builds automatiques.
+- **Années 2000 - Adoption intiale : Manifeste Agile et 1er outils CI :**
+  -  **2000 :** Kent Beck et Martin Fowler popularisent l'intégration continue en tant que pratique clé de l'Extreme Programming (XP). Le livre "Continuous Integration" de Martin Fowler décrit les principes et les pratiques associées.
+  -  **2001 :**
+    - Le Manifeste Agile est publié, promouvant des pratiques de développement logiciel plus collaboratives et itératives. L'intégration continue devient un élément central des méthodologies agiles. 
+  En effet le Manifeste Agile, publié par un groupe de développeurs de logiciels, a formalisé un ensemble de valeurs et de principes pour guider le développement logiciel agile. Les valeurs fondamentales du Manifeste Agile sont :
+      - Individus et interactions plutôt que processus et outils.
+      - Logiciel opérationnel plutôt que documentation exhaustive.
+      - Collaboration avec le client plutôt que négociation de contrat.
+      - Répondre au changement plutôt que suivre un plan.
+Ces valeurs ont favorisé une approche plus flexible, itérative et collaborative du développement de logiciels, par opposition aux méthodes traditionnelles en cascade.
+    - CruiseControl, l'un des premiers outils d'intégration continue open-source, est lancé par ThoughtWorks. Cet outil aide les équipes à automatiser le processus de build et à intégrer régulièrement les changements de code.
+  - **2005 :** Hudson, un autre outil d'intégration continue open-source, est créé. Il deviendra plus tard Jenkins après un fork en 2011 en raison de divergences de la communauté avec Oracle, qui avait acquis Sun Microsystems (propriétaire initial de Hudson). Il est devenu l'un des outils les plus populaires pour l'intégration continue grâce à sa facilité d'utilisation et à sa flexibilité.
 
-- **Années 2000 - Jenkins/Hudson :**
-  - Jenkins, lancé en 2005 sous le nom de Hudson, est rapidement devenu l'un des outils les plus populaires pour l'intégration continue grâce à sa facilité d'utilisation et à sa flexibilité.
+- **Années 2010 -  :**
+  -  **2010 :** Travis CI est lancé, offrant une solution d'intégration continue basée sur le cloud, ce qui facilite l'adoption de la CI pour les projets open-source hébergés sur GitHub
+  -  **2011 :** GitLab CI est introduit, intégrant l'intégration continue directement dans la plateforme de gestion de code GitLab
+  -  **2014 :** CircleCI est lancé, offrant une autre solution d'intégration et de déploiement continu (CI/CD) basée sur le cloud.
+ 
+- **Années 2020 -  :**
+  - **2020** : GitHub Actions est largement adopté, permettant aux développeurs d'automatiser leurs workflows directement à partir de GitHub, y compris les pipelines CI/CD. 
 
 ### Évolution vers le Déploiement Continu (CD)
 
 - **Années 2010 - CI/CD et DevOps :**
   - Avec l'adoption croissante des pratiques CI, l'industrie a commencé à se concentrer sur le déploiement continu (CD). Le CD vise à automatiser non seulement l'intégration, mais aussi le déploiement du code en production.
   - Le mouvement DevOps, qui a émergé à la fin des années 2000 et au début des années 2010, a joué un rôle crucial dans la promotion de CI/CD. DevOps met l'accent sur la collaboration entre les équipes de développement et d'exploitation pour livrer des logiciels plus rapidement et de manière plus fiable.
-
+  DevOps est une approche qui cherche à unifier le développement de logiciels et les opérations informatiques. Les principaux objectifs de DevOps sont :
+    - **Accélérer le cycle de développement :** Réduire le temps entre l'écriture d'un code et son déploiement en production.
+    - **Améliorer la qualité du logiciel :** Utiliser des pratiques de test automatisé et d'intégration continue pour identifier et corriger les problèmes plus tôt.
+    - **Renforcer la collaboration :** Promouvoir la communication et la coopération entre les équipes de développement et les opérations.
+    - **Augmenter la fiabilité :** Garantir que les systèmes sont robustes et performants, même lors de fréquents déploiements de nouvelles fonctionnalités.
 
 \`\`\`yaml
 # Exemple de configuration de Jenkins pour l'intégration continue
