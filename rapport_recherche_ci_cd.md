@@ -219,29 +219,49 @@ GitLab CI est intégré à GitLab et permet de configurer des pipelines CI/CD di
 
 Les pipelines d'intégration continue (CI) et de déploiement continu (CD) sont une série d'étapes qui doivent être réalisées pour fournir une nouvelle version du logiciel. Ils sont une pratique visant à dynamiser la livraison de logiciels tout au long du cycle de vie du développement grâce à l'automatisation. Toutes les étapes s'exécutent dans l'ordre les unes après les autres. Si une étape/étape échoue, elle ne passera pas à une autre étape/étape tant que l'étape précédente n'aura pas réussi. 
 
+![image pipeline CI/CD](https://github.com/AudeC2103/veille_tec_ci_cd/assets/166111910/7b97b834-f39a-43c3-9906-f1bb2b148cf1)
+
 ### 1. Processus du pipeline de build dans le CI
 
 #### Commit et Push :
-Les développeurs effectuent des modifications de code, puis les soumettent et les poussent vers un dépôt central.
+Les développeurs effectuent des modifications de code, puis les soumettent et les poussent vers un dépôt central (par exemple : Git)
 #### Pipeline de build : 
 Chaque commit déclenche le pipeline de build, qui comprend :
-  **1. Compilation :** Le code source est compilé.
-    **Étapes de la Compilation**
-        **- Analyse Lexicale :** Le compilateur lit le code source et le décompose en tokens, qui sont les plus petites unités de sens dans le code (mots-clés,   identifiants, opérateurs, etc.).
-        **- Analyse Syntaxique :** Le compilateur vérifie la structure syntaxique du code en utilisant une grammaire définie pour le langage de programmation. Il s'assure que les instructions sont correctement formées.
-        **- Analyse Sémantique :** Le compilateur vérifie que le code a un sens logique (par exemple, que les variables sont correctement déclarées et utilisées).
-        **- Optimisation :** Le compilateur améliore le code pour le rendre plus efficace, sans changer son comportement.
-        **- Génération de Code :** Le compilateur traduit le code source en code machine ou en bytecode. Le code machine est spécifique au processeur de l'ordinateur, tandis que le bytecode est destiné à une machine virtuelle (comme la JVM pour Java).
-  **2. Tests unitaires :** Les tests unitaires sont exécutés pour valider que les modifications n'introduisent pas de bug.
-  **3. Génération des fichiers de sortie :** Les fichiers de sortie, comme les binaires ou les images de conteneurs Docker, sont créés.
+  ##### 1. Compilation :
+  Le code source est compilé (Exemple : Transformation du code source C++ en fichiers .exe ou .out). 
+  **Étapes de la Compilation** :
+  ###### 1. Analyse Lexicale:
+    Le compilateur lit le code source et le décompose en tokens, qui sont les plus petites unités de sens dans le code (mots-clés,   identifiants, opérateurs, etc.).
+  ###### 2. Analyse Syntaxique :
+     Le compilateur vérifie la structure syntaxique du code en utilisant une grammaire définie pour le langage de programmation. Il s'assure que les instructions sont correctement formées.
+  ###### 3. Analyse Sémantique :
+    Le compilateur vérifie que le code a un sens logique (par exemple, que les variables sont correctement déclarées et utilisées).
+  ###### 4. Optimisation : 
+    Le compilateur améliore le code pour le rendre plus efficace, sans changer son comportement.
+  ###### 5. Génération de Code :
+    Le compilateur traduit le code source en code machine ou en bytecode. Le code machine est spécifique au processeur de l'ordinateur, tandis que le bytecode est destiné à une machine virtuelle (comme la JVM pour Java).
+  ##### 2. Exécution des tests unitaires :
+  Les tests unitaires sont exécutés pour vérifier le bon fonctionnement des unités de code (fonctions, méthodes) et ainsi valider que les modifications n'introduisent pas de bug.
+  ##### 3. Génération des fichiers de sortie :
+   Les fichiers de sortie, comme les binaires ou les images de conteneurs Docker, sont créés. Voici les étapes détaillées :
+  ##### 1. Packaging :
+  Le code est empaqueté (par exemple, dans une archive ZIP ou une image Docker).
+  ##### 2. Publication des Artefacts :
+  Les binaires et autres fichiers générés sont stockés dans un registre d'artefacts (par exemple, JFrog Artifactory, Nexus).
+  L'objectif est de rendre les artefacts disponibles pour le déploiement.
+  ##### 3. Notification :
+  Les développeurs sont informés des résultats du pipeline (succès ou échec).
+  En cas d'échec, des actions correctives sont entreprises.
+  
 Le pipeline de build est donc une partie intégrante de la CI. Il se déclenche à chaque fois qu'il y a une modification de code soumise au dépôt central.
 
-### 2. Processus du pipeline de déploiement dans le CD
+### 2. Processus du pipeline de déploiement (ou Release Pipeline) dans le CD
 
-Un pipeline de déploiement automatisé prend les artefacts de build et les déploie dans des environnements de test ou de production.
+Le pipeline de déploiement continu (CD) est un processus automatisé visant à déployer les artefacts validés par le pipeline CI dans divers environnements (staging, production) de manière régulière et fiable.
+
 
 - **Étapes typiques** : Déploiement sur un environnement de staging, exécution des tests d'intégration, déploiement en production.
-![image pipeline CI/CD](https://github.com/AudeC2103/veille_tec_ci_cd/assets/166111910/7b97b834-f39a-43c3-9906-f1bb2b148cf1)
+
 
 Un pipeline CI/CD permet une mise sur le marché nettement plus rapide des nouvelles fonctionnalités d'un produit. Cela permet de satisfaire davantage les clients et de réduire la tension et le stress liés au développement de logiciels.
 
