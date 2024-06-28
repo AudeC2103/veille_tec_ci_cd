@@ -227,30 +227,20 @@ Les pipelines d'intégration continue (CI) et de déploiement continu (CD) sont 
 Les développeurs effectuent des modifications de code, puis les soumettent et les poussent vers un dépôt central (par exemple : Git)
 #### Pipeline de build : 
 Chaque commit déclenche le pipeline de build, qui comprend :
-  ##### 1. Compilation :
+  1. **Compilation :**
   Le code source est compilé (Exemple : Transformation du code source C++ en fichiers .exe ou .out). 
   **Étapes de la Compilation** :
-  ###### 1. Analyse Lexicale:
-    Le compilateur lit le code source et le décompose en tokens, qui sont les plus petites unités de sens dans le code (mots-clés,   identifiants, opérateurs, etc.).
-  ###### 2. Analyse Syntaxique :
-     Le compilateur vérifie la structure syntaxique du code en utilisant une grammaire définie pour le langage de programmation. Il s'assure que les instructions sont correctement formées.
-  ###### 3. Analyse Sémantique :
-    Le compilateur vérifie que le code a un sens logique (par exemple, que les variables sont correctement déclarées et utilisées).
-  ###### 4. Optimisation : 
-    Le compilateur améliore le code pour le rendre plus efficace, sans changer son comportement.
-  ###### 5. Génération de Code :
-    Le compilateur traduit le code source en code machine ou en bytecode. Le code machine est spécifique au processeur de l'ordinateur, tandis que le bytecode est destiné à une machine virtuelle (comme la JVM pour Java).
-  ##### 2. Exécution des tests unitaires :
-  Les tests unitaires sont exécutés pour vérifier le bon fonctionnement des unités de code (fonctions, méthodes) et ainsi valider que les modifications n'introduisent pas de bug.
-  ##### 3. Génération des fichiers de sortie :
-   Les fichiers de sortie, comme les binaires ou les images de conteneurs Docker, sont créés. Voici les étapes détaillées :
-  ##### 1. Packaging :
-  Le code est empaqueté (par exemple, dans une archive ZIP ou une image Docker).
-  ##### 2. Publication des Artefacts :
-  Les binaires et autres fichiers générés sont stockés dans un registre d'artefacts (par exemple, JFrog Artifactory, Nexus).
+      1. **Analyse Lexicale:** Le compilateur lit le code source et le décompose en tokens, qui sont les plus petites unités de sens dans le code (mots-clés,   identifiants, opérateurs, etc.).
+      2. **Analyse Syntaxique :** Le compilateur vérifie la structure syntaxique du code en utilisant une grammaire définie pour le langage de programmation. Il s'assure que les instructions sont correctement formées.
+      3. **Analyse Sémantique :** Le compilateur vérifie que le code a un sens logique (par exemple, que les variables sont correctement déclarées et utilisées).
+      4. **Optimisation :** Le compilateur améliore le code pour le rendre plus efficace, sans changer son comportement.
+      5. **Génération de Code :** Le compilateur traduit le code source en code machine ou en bytecode. Le code machine est spécifique au processeur de l'ordinateur, tandis que le bytecode est destiné à une machine virtuelle (comme la JVM pour Java).
+  2. **Exécution des tests unitaires :** Les tests unitaires sont exécutés pour vérifier le bon fonctionnement des unités de code (fonctions, méthodes) et ainsi valider que les modifications n'introduisent pas de bug.
+  3. **Génération des fichiers de sortie :** Les fichiers de sortie, comme les binaires ou les images de conteneurs Docker, sont créés. Voici les étapes détaillées :
+     1. **Packaging :** Le code est empaqueté (par exemple, dans une archive ZIP ou une image Docker).
+     2. **Publication des Artefacts :** Les binaires et autres fichiers générés sont stockés dans un registre d'artefacts (par exemple, JFrog Artifactory, Nexus).
   L'objectif est de rendre les artefacts disponibles pour le déploiement.
-  ##### 3. Notification :
-  Les développeurs sont informés des résultats du pipeline (succès ou échec).
+    3. **Notification :** Les développeurs sont informés des résultats du pipeline (succès ou échec).
   En cas d'échec, des actions correctives sont entreprises.
   
 Le pipeline de build est donc une partie intégrante de la CI. Il se déclenche à chaque fois qu'il y a une modification de code soumise au dépôt central.
