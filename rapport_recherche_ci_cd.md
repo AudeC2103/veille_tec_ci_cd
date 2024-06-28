@@ -35,7 +35,7 @@ L'intégration continue est une pratique de développement où les développeurs
 - **But** : Détecter les problèmes tôt, réduire les conflits de fusion, et améliorer la collaboration entre les développeurs.
 - **Processus** : Inclut l'exécution de tests automatisés et la vérification du code.
 
-# Exemple de configuration de Jenkins pour l'intégration continue
+#### Exemple de configuration de Jenkins pour l'intégration continue
 pipeline {
     agent any
     stages {
@@ -63,7 +63,7 @@ Le déploiement continu va au-delà de l'intégration continue en automatisant l
 - **Processus** : Comprend des tests automatisés approfondis, des vérifications de sécurité, et des étapes de déploiement.
 
 \`\`\`yaml
-# Exemple de configuration GitHub Actions pour le déploiement continu
+##### Exemple de configuration GitHub Actions pour le déploiement continu
 name: CI/CD Pipeline
 
 on:
