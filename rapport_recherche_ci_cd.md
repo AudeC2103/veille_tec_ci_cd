@@ -103,6 +103,7 @@ L'intégration continue est une pratique de développement où les développeurs
 - **But** : Détecter les problèmes tôt, réduire les conflits de fusion, et améliorer la collaboration entre les développeurs.
 - **Processus** : Inclut l'exécution de tests automatisés et la vérification du code.
 
+\`\`\`yaml
 #### Exemple de configuration de Jenkins pour l'intégration continue
 pipeline {
     agent any
@@ -192,8 +193,10 @@ Les pipelines d'intégration continue (CI) et de déploiement continu (CD) sont 
 
 ### 1. Processus du pipeline de build dans le CI
 
-**Commit et Push :** Les développeurs effectuent des modifications de code, puis les soumettent et les poussent vers un dépôt central.
-**Pipeline de build :** Chaque commit déclenche le pipeline de build, qui comprend :
+#### Commit et Push :
+Les développeurs effectuent des modifications de code, puis les soumettent et les poussent vers un dépôt central.
+#### Pipeline de build : 
+Chaque commit déclenche le pipeline de build, qui comprend :
   **1. Compilation :** Le code source est compilé.
     **Étapes de la Compilation**
         **- Analyse Lexicale :** Le compilateur lit le code source et le décompose en tokens, qui sont les plus petites unités de sens dans le code (mots-clés,   identifiants, opérateurs, etc.).
