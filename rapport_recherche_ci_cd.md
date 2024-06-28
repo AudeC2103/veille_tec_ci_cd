@@ -1,22 +1,102 @@
 
 # Rapport de Recherche : CI/CD (Continuous Integration/Continuous Deployment)
 
+## SOMMAIRE
+### Introduction
+### 1. Concepts de CI/CD
+  #### 1. Integration Continue (CI)
+  #### 2. Déploiement Continue (CD)
+### 2. Historique et évolution
+  #### 1. Origine de l'intégration continue
+  #### 2. Evolution vers le déploiement continue
+  #### 3. Perspectives futures
+### 3. Outils de CI/CD Populaires
+  #### 1. Jenkins
+  #### 2. GitHub Action
+  #### 3. GitLab CI
+### 4. Pipelines de Build et de Déploiement Automatisé
+  #### 1. Build Automatisé
+  #### 2. Déploiement Automatisé
+### 5. Tests Automatisés et Intégration Continue
+  #### 1. Importance des Tests Automatisés
+  #### 2. Mise en Place de l'Intégration Continue
+
+
 ## Introduction
 
 L'objectif de ce rapport est de fournir une compréhension claire et accessible des concepts de CI/CD (Continuous Integration/Continuous Deployment) pour les développeurs front-end. CI/CD est une pratique essentielle qui automatise le processus de développement, de test et de déploiement, améliorant ainsi la qualité et la rapidité des livraisons de logiciels.
 
-## Concepts de CI/CD
+## 1. Concepts de CI/CD
 
-### Intégration Continue (Continuous Integration - CI)
+### 1. Intégration Continue (Continuous Integration - CI)
 
 L'intégration continue est une pratique de développement où les développeurs intègrent régulièrement leur code dans un dépôt centralisé. Chaque intégration est vérifiée par une compilation automatique, permettant de détecter rapidement les erreurs.
 
 - **But** : Détecter les problèmes tôt, réduire les conflits de fusion, et améliorer la collaboration entre les développeurs.
 - **Processus** : Inclut l'exécution de tests automatisés et la vérification du code.
 
-## Historique et évolution
+# Exemple de configuration de Jenkins pour l'intégration continue
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                sh 'make build'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                sh 'make test'
+            }
+        }
+    }
+}
+\`\`\`
 
-### Origines de l'Intégration Continue (CI)
+### 2. Déploiement Continu (Continuous Deployment - CD)
+
+Le déploiement continu va au-delà de l'intégration continue en automatisant le déploiement du code validé en production. Chaque modification validée passe par un pipeline automatisé et, si elle réussit toutes les étapes, est déployée automatiquement.
+
+- **But** : Livrer rapidement et en toute sécurité des fonctionnalités aux utilisateurs finaux.
+- **Processus** : Comprend des tests automatisés approfondis, des vérifications de sécurité, et des étapes de déploiement.
+
+\`\`\`yaml
+# Exemple de configuration GitHub Actions pour le déploiement continu
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Deploy to production
+        run: npm run deploy
+        if: success()
+\`\`\`
+
+## 2. Historique et évolution
+
+### 1. Origines de l'Intégration Continue (CI)
 
 - **Années 1990 - Pratiques de Développement Traditionnelles et début de l'Extreme Programming (XP):**
   - Avant l'adoption généralisée des méthodes agiles et de l'intégration continue, le développement logiciel suivait souvent des modèles en cascade. Les développeurs travaillaient sur des branches distinctes pendant de longues périodes avant d'intégrer leurs modifications dans la branche principale. Le rythme de mise en production d’une application était d’environ une mise à jour majeure tous les 3 à 6 mois.
@@ -56,7 +136,7 @@ Ces valeurs ont favorisé une approche plus flexible, itérative et collaborativ
   - **2021 :** améliorations des outils existant : Jenkins, GitLab CI/CD, CircleCI et Travis CI ont tous continué à évoluer avec des fonctionnalités améliorées et une meilleure intégration cloud.
   - **2022 :** Focus sur la Sécurité : Une augmentation des efforts pour intégrer la sécurité dans les pipelines CI/CD, avec l'adoption de scanners de sécurité automatisés et de tests de vulnérabilité.
 
-### Évolution vers le Déploiement Continu (CD)
+### 2. Évolution vers le Déploiement Continu (CD)
 
 - **2009 :** **Adoption intiale** Jez Humble et David Farley introduise la notion de déploiement continu dans leur livre "Continuous Delivery".
 - **Années 2010 - CI/CD et DevOps :**
@@ -75,146 +155,80 @@ Ces valeurs ont favorisé une approche plus flexible, itérative et collaborativ
   - **2021 :** Accent accru sur la sécurité dans les pipelines de déploiement continu, avec l'intégration de scanners de sécurité automatisés.
   - **2022 :** Évolution vers des stratégies de déploiement plus sophistiquées comme le déploiement progressif et le rollback automatisé.
 
-### Perspectives futures
+### 3. Perspectives futures
 
   - **Intelligence Artificielle et Machine Learning :** On prévoit que l'intégration de l'IA et du machine learning dans les pipelines CI/CD pourrait se développer pour optimiser les workflows et améliorer la qualité du code.
   - **Expansion de l'Automatisation :** L'automatisation des pipelines CI/CD devrait continuer à croître, avec des innovations dans l'automatisation des tests, des déploiements et de la gestion des infrastructures.
   - **Interopérabilité et Standardisation :** Une meilleure interopérabilité entre les outils CI/CD et une standardisation des pratiques pourraient simplifier l'adoption et l'utilisation de ces technologies pour les équipes de développement.
 
-# Exemple de configuration de Jenkins pour l'intégration continue
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                sh 'make build'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                sh 'make test'
-            }
-        }
-    }
-}
-\`\`\`
+## 3. Outils de CI/CD Populaires
 
-### Déploiement Continu (Continuous Deployment - CD)
-
-Le déploiement continu va au-delà de l'intégration continue en automatisant le déploiement du code validé en production. Chaque modification validée passe par un pipeline automatisé et, si elle réussit toutes les étapes, est déployée automatiquement.
-
-- **But** : Livrer rapidement et en toute sécurité des fonctionnalités aux utilisateurs finaux.
-- **Processus** : Comprend des tests automatisés approfondis, des vérifications de sécurité, et des étapes de déploiement.
-
-\`\`\`yaml
-# Exemple de configuration GitHub Actions pour le déploiement continu
-name: CI/CD Pipeline
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
-      - name: Deploy to production
-        run: npm run deploy
-        if: success()
-\`\`\`
-
-## Outils de CI/CD Populaires
-
-### Jenkins
+### 1. Jenkins
 
 Jenkins est un serveur open-source d'automatisation qui permet de mettre en place des pipelines de CI/CD. Il est très extensible grâce à ses nombreux plugins.
 
 - **Caractéristiques** : Open-source, extensible, large communauté.
 - **Cas d'utilisation** : Automatisation des builds, tests et déploiements.
 
-### GitHub Actions
+### 2. GitHub Actions
 
 GitHub Actions permet d'automatiser les workflows directement depuis le dépôt GitHub. Il est intégré à l'écosystème GitHub et permet de créer des pipelines CI/CD à l'aide de fichiers YAML.
 
 - **Caractéristiques** : Intégré à GitHub, facile à configurer, large éventail d'actions.
 - **Cas d'utilisation** : Automatisation des tests, des builds et des déploiements.
 
-### GitLab CI
+### 3. GitLab CI
 
 GitLab CI est intégré à GitLab et permet de configurer des pipelines CI/CD directement depuis le dépôt. Il offre des fonctionnalités avancées telles que la gestion des runners et le monitoring des pipelines.
 
 - **Caractéristiques** : Intégré à GitLab, complet, gestion des runners.
 - **Cas d'utilisation** : Automatisation complète du cycle de vie des applications.
 
-## Pipelines de Build et de Déploiement Automatisé
+## 4. Pipelines de Build et de Déploiement Automatisé
 
-### Build Automatisé
+### 1. Build Automatisé
 
 Un pipeline de build automatisé compile le code source, exécute des tests unitaires, et génère des artefacts de build.
 
 - **Étapes typiques** : Compilation, exécution des tests unitaires, génération des artefacts (binaries, conteneurs Docker).
 
-### Déploiement Automatisé
+### 2. Déploiement Automatisé
 
 Un pipeline de déploiement automatisé prend les artefacts de build et les déploie dans des environnements de test ou de production.
 
 - **Étapes typiques** : Déploiement sur un environnement de staging, exécution des tests d'intégration, déploiement en production.
 
-## Tests Automatisés et Intégration Continue
+## 5. Tests Automatisés et Intégration Continue
 
-### Importance des Tests Automatisés
+### 1. Importance des Tests Automatisés
 
 Les tests automatisés sont cruciaux pour assurer la qualité du code. Ils permettent de détecter rapidement les régressions et les bugs introduits par les nouvelles modifications.
 
 - **Types de tests** : Tests unitaires, tests d'intégration, tests de bout en bout.
 
-### Mise en Place de l'Intégration Continue
+### 2. Mise en Place de l'Intégration Continue
 
 Pour mettre en place l'intégration continue, il est nécessaire de configurer un serveur CI/CD (comme Jenkins, GitHub Actions ou GitLab CI) pour surveiller le dépôt de code source et exécuter automatiquement les tests à chaque commit.
 
 - **Processus** : Surveillance des commits, exécution des builds, exécution des tests, génération de rapports.
 
-## Importance pour les Développeurs Front-end
+## Conclusion
 
-### Collaboration avec les équipes Back-end
+### Importance pour les Développeurs Front-end
+
+**1. Collaboration avec les équipes Back-end**
 
 Comprendre CI/CD permet aux développeurs front-end de mieux collaborer avec les équipes back-end. Cela facilite l'intégration de nouvelles fonctionnalités et assure que les modifications sont déployées en douceur.
 
-### Automatisation des tâches répétitives
+**2. Automatisation des tâches répétitives**
 
 En automatisant les builds et les tests, les développeurs front-end peuvent se concentrer sur le développement de fonctionnalités et l'amélioration de l'expérience utilisateur.
 
-### Livraison continue de fonctionnalités
+**3. Livraison continue de fonctionnalités**
 
 CI/CD permet de livrer rapidement des nouvelles fonctionnalités aux utilisateurs, assurant ainsi une amélioration continue du produit.
 
-## Conclusion
-
 La mise en place de CI/CD permet d'améliorer significativement la qualité et la rapidité des livraisons de logiciels. En automatisant les processus de build, de test et de déploiement, les équipes de développement peuvent se concentrer sur l'ajout de valeur plutôt que sur des tâches répétitives et sujettes à erreur. Pour les développeurs front-end, comprendre ces concepts et outils est essentiel pour collaborer efficacement avec les équipes back-end et assurer une livraison de logiciels fluide et de haute qualité.
-
-## Références
-
-1. "What is CI/CD?", [Atlassian](https://www.atlassian.com/continuous-delivery/ci-vs-cd).
-2. "Jenkins Documentation", [Jenkins](https://www.jenkins.io/doc/).
-3. "GitHub Actions Documentation", [GitHub](https://docs.github.com/en/actions).
-4. "GitLab CI/CD Documentation", [GitLab](https://docs.gitlab.com/ee/ci/).
 
 ## sources 
 
@@ -222,5 +236,8 @@ La mise en place de CI/CD permet d'améliorer significativement la qualité et l
 - [Tutoriel Jenkins](https://www.jenkins.io/doc/tutorials/)
 - [Tutoriel GitHub Actions](https://docs.github.com/en/actions/learn-github-actions)
 - [Tutoriel GitLab CI](https://docs.gitlab.com/ee/ci/tutorials/)
-- [Atlassian](https://www.atlassian.com/fr/continuous-delivery/continuous-integration#:~:text=L'int%C3%A9gration%20continue%20(CI),et%20m%C3%AAme%20projet%20de%20d%C3%A9veloppement)
+- [Atlassian](https://www.atlassian.com/continuous-delivery/ci-vs-cd)
 - [qiminfo](https://www.qiminfo.ch/ci-cd/)
+- [Octo](https://blog.octo.com/devops-de-lintegration-continue-au-deploiement-continu)
+- [Datascientest](https://datascientest.com/ci-cd-integration-continue-livraison-continue)
+  
