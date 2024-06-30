@@ -20,7 +20,9 @@
 ### 5. Tests Automatisés et Intégration Continue
   #### 1. Importance des Tests Automatisés
   #### 2. Mise en Place de l'Intégration Continue
+### Conclusion
 
+---
 
 ## Introduction
 
@@ -51,7 +53,7 @@ Ce rapport vise à expliquer les concepts de CI/CD, à présenter les outils les
 - **Années 2000 - Adoption intiale : Manifeste Agile et 1er outils CI :**
   -  **2000 :** Kent Beck et Martin Fowler popularisent l'intégration continue en tant que pratique clé de l'Extreme Programming (XP). Le livre "Continuous Integration" de Martin Fowler décrit les principes et les pratiques associées.
   -  **2001 :**
-    - Le Manifeste Agile est publié, promouvant des pratiques de développement logiciel plus collaboratives et itératives. L'intégration continue devient un élément central des méthodologies agiles. 
+    - le Manifeste Agile est publié, promouvant des pratiques de développement logiciel plus collaboratives et itératives. L'intégration continue devient un élément central des méthodologies agiles. 
   En effet le Manifeste Agile, publié par un groupe de développeurs de logiciels, a formalisé un ensemble de valeurs et de principes pour guider le développement logiciel agile. Les valeurs fondamentales du Manifeste Agile sont :
       - Individus et interactions plutôt que processus et outils.
       - Logiciel opérationnel plutôt que documentation exhaustive.
@@ -229,15 +231,15 @@ Chaque commit déclenche le pipeline de build, qui comprend :
 #### 1. Compilation :
   Le code source est compilé (Exemple : Transformation du code source C++ en fichiers .exe ou .out). 
   **Étapes de la Compilation** :
-  1.**Analyse Lexicale :**
+  1. **Analyse Lexicale :**
     Le compilateur lit le code source et le décompose en tokens, qui sont les plus petites unités de sens dans le code (mots-clés,   identifiants, opérateurs, etc.).
-  2. **Analyse Syntaxique :**
+2. **Analyse Syntaxique :**
      Le compilateur vérifie la structure syntaxique du code en utilisant une grammaire définie pour le langage de programmation. Il s'assure que les instructions sont correctement formées.
-  3.**Analyse Sémantique :**
+   3. **Analyse Sémantique :**
     Le compilateur vérifie que le code a un sens logique (par exemple, que les variables sont correctement déclarées et utilisées).
-  4. **Optimisation :** 
+4. **Optimisation :** 
     Le compilateur améliore le code pour le rendre plus efficace, sans changer son comportement.
-  5. **Génération de Code :**
+   5. **Génération de Code :**
     Le compilateur traduit le code source en code machine ou en bytecode. Le code machine est spécifique au processeur de l'ordinateur, tandis que le bytecode est destiné à une machine virtuelle (comme la JVM pour Java).
 #### 2. Exécution des tests unitaires :
   Les tests unitaires sont exécutés pour vérifier le bon fonctionnement des unités de code (fonctions, méthodes) et ainsi valider que les modifications n'introduisent pas de bug.
@@ -306,4 +308,5 @@ Pour mettre en place l'intégration continue, il est nécessaire de configurer u
 - [openreplay](https://blog.openreplay.com/what-is-a-ci-cd-pipeline/)
 - [simform](https://www.simform.com/blog/what-is-cicd/)
 - [Utor](https://u-tor.com/topic/ci-cd-workflow-and-qa)
+- [gartsolution](https://gartsolutions.medium.com/building-an-effective-ci-cd-pipeline-a-comprehensive-guide-bb07343973b7)
   
