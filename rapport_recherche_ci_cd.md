@@ -195,45 +195,51 @@ Les pipelines d'intégration continue (CI) et de déploiement continu (CD) sont 
 
 ### 1. Processus du pipeline de build dans le CI
 
-#### Commit et Push :
-Les développeurs effectuent des modifications de code, puis les soumettent et les poussent vers un dépôt central (par exemple : Git)
-#### Pipeline de build : 
+Les développeurs effectuent des modifications de code, puis les soumettent (**Commit**) et les poussent (**Push**) vers un dépôt central (par exemple : Git)
 Chaque commit déclenche le pipeline de build, qui comprend :
-  ##### 1. Compilation :
+#### 1. Compilation :
   Le code source est compilé (Exemple : Transformation du code source C++ en fichiers .exe ou .out). 
   **Étapes de la Compilation** :
-  ###### 1. Analyse Lexicale:
+  1.**Analyse Lexicale :**
     Le compilateur lit le code source et le décompose en tokens, qui sont les plus petites unités de sens dans le code (mots-clés,   identifiants, opérateurs, etc.).
-  ###### 2. Analyse Syntaxique :
+  2. **Analyse Syntaxique :**
      Le compilateur vérifie la structure syntaxique du code en utilisant une grammaire définie pour le langage de programmation. Il s'assure que les instructions sont correctement formées.
-  ###### 3. Analyse Sémantique :
+  3.**Analyse Sémantique :**
     Le compilateur vérifie que le code a un sens logique (par exemple, que les variables sont correctement déclarées et utilisées).
-  ###### 4. Optimisation : 
+  4. **Optimisation :** 
     Le compilateur améliore le code pour le rendre plus efficace, sans changer son comportement.
-  ###### 5. Génération de Code :
+  5. **Génération de Code :**
     Le compilateur traduit le code source en code machine ou en bytecode. Le code machine est spécifique au processeur de l'ordinateur, tandis que le bytecode est destiné à une machine virtuelle (comme la JVM pour Java).
-  ##### 2. Exécution des tests unitaires :
+#### 2. Exécution des tests unitaires :
   Les tests unitaires sont exécutés pour vérifier le bon fonctionnement des unités de code (fonctions, méthodes) et ainsi valider que les modifications n'introduisent pas de bug.
-  ##### 3. Génération des fichiers de sortie :
+#### 3. Génération des fichiers de sortie :
    Les fichiers de sortie, comme les binaires ou les images de conteneurs Docker, sont créés. Voici les étapes détaillées :
-  ##### 1. Packaging :
+  1. **Packaging :**
   Le code est empaqueté (par exemple, dans une archive ZIP ou une image Docker).
-  ##### 2. Publication des Artefacts :
+  2. **Publication des Artefacts :**
   Les binaires et autres fichiers générés sont stockés dans un registre d'artefacts (par exemple, JFrog Artifactory, Nexus).
   L'objectif est de rendre les artefacts disponibles pour le déploiement.
-  ##### 3. Notification :
+  3. **Notification :**
   Les développeurs sont informés des résultats du pipeline (succès ou échec).
   En cas d'échec, des actions correctives sont entreprises.
   
 Le pipeline de build est donc une partie intégrante de la CI. Il se déclenche à chaque fois qu'il y a une modification de code soumise au dépôt central.
+![image pipeline CI](https://lh5.googleusercontent.com/O3xnRvZnWtNutz1570FzDEQNPk08mbc7kEABgyv7gLrgZhGsioDdSN-VyUPUVJ2DekIHBboCMwKwrvF-3js4hw3Mteefo-rlFCRiv0JG0Y2xGatLXl5lCpklaDlaF9qN2dSY7ES5)
 
 ### 2. Processus du pipeline de déploiement (ou Release Pipeline) dans le CD
 
 Le pipeline de déploiement continu (CD) est un processus automatisé visant à déployer les artefacts validés par le pipeline CI dans divers environnements (staging, production) de manière régulière et fiable.
 
+#### 1. Récupération des artefactes et déploiement sur environnement de staging :
+Cette étape consiste à récupérer les artefacts validés par le pipeline CI (comme les binaires ou les images Docker) à partir du registre d'artefacts (par exemple, JFrog Artifactory, Nexus) et à les déployer dans un environnement de test (staging = copie de l'environnement de production) pour s'assurer de leur bon fonctionnement avant de les déployer en production.
+ 
+#### 2. Tests d'Intégration et Validation :
+Cette étape inclut l'exécution de tests automatisés d'intégration pour vérifier que tous les composants du système interagissent correctement et éventuellement une validation manuelle pour garantir la qualité et la fiabilité de la nouvelle version.
 
-- **Étapes typiques** : Déploiement sur un environnement de staging, exécution des tests d'intégration, déploiement en production.
+#### 3. Déploiement en Production et Surveillance :
+Les artefacts validés sont déployés dans l'environnement de production, rendant les nouvelles fonctionnalités disponibles pour les utilisateurs finaux. Une surveillance continue des applications est déployées pour détecter rapidement tout problème potentiel et à effectuer un retour en arrière (rollback) si nécessaire (utilisation d'outils de monitoring comme Prometheus et Grafana pour assurer une observabilité complète) avec pour objectif d'assurer la stabilité et la performance des applications en production et réagir rapidement en cas de problèmes.
 
+![image pipeline CI/CD](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*TEIma78T4t4gcpkPo7GqzA.png)
 
 Un pipeline CI/CD permet une mise sur le marché nettement plus rapide des nouvelles fonctionnalités d'un produit. Cela permet de satisfaire davantage les clients et de réduire la tension et le stress liés au développement de logiciels.
 
@@ -253,21 +259,8 @@ Pour mettre en place l'intégration continue, il est nécessaire de configurer u
 
 ## Conclusion
 
-### Importance pour les Développeurs Front-end
-
-**1. Collaboration avec les équipes Back-end**
-
-Comprendre CI/CD permet aux développeurs front-end de mieux collaborer avec les équipes back-end. Cela facilite l'intégration de nouvelles fonctionnalités et assure que les modifications sont déployées en douceur.
-
-**2. Automatisation des tâches répétitives**
-
-En automatisant les builds et les tests, les développeurs front-end peuvent se concentrer sur le développement de fonctionnalités et l'amélioration de l'expérience utilisateur.
-
-**3. Livraison continue de fonctionnalités**
-
-CI/CD permet de livrer rapidement des nouvelles fonctionnalités aux utilisateurs, assurant ainsi une amélioration continue du produit.
-
-La mise en place de CI/CD permet d'améliorer significativement la qualité et la rapidité des livraisons de logiciels. En automatisant les processus de build, de test et de déploiement, les équipes de développement peuvent se concentrer sur l'ajout de valeur plutôt que sur des tâches répétitives et sujettes à erreur. Pour les développeurs front-end, comprendre ces concepts et outils est essentiel pour collaborer efficacement avec les équipes back-end et assurer une livraison de logiciels fluide et de haute qualité.
+  L'implémentation des pipelines CI/CD représente une avancée significative dans le développement logiciel moderne. En automatisant les processus d'intégration et de déploiement, ces pipelines permettent de garantir une livraison continue de code de haute qualité. Comprendre CI/CD permet aux développeurs front-end de mieux collaborer avec les équipes back-end. Cela facilite l'intégration de nouvelles fonctionnalités et assure que les modifications sont déployées en douceur. En automatisant les builds et les tests, les développeurs front-end peuvent se concentrer sur le développement de fonctionnalités et l'amélioration de l'expérience utilisateur. CI/CD assure ainsi une amélioration continue du produit.
+     Du côté des clients, l'adoption de CI/CD assure une livraison plus rapide des fonctionnalités tout en maintenant la stabilité et la fiabilité des applications, ce qui se traduit par une satisfaction accrue. En somme, les pipelines CI/CD jouent un rôle crucial en facilitant une collaboration efficace entre les équipes de développement et en assurant des livraisons fréquentes et de qualité aux utilisateurs finaux.
 
 ## sources 
 
@@ -282,4 +275,5 @@ La mise en place de CI/CD permet d'améliorer significativement la qualité et l
 - [Geeksforgeeks](https://www.geeksforgeeks.org/difference-between-continuous-integration-and-continuous-delivery/)
 - [openreplay](https://blog.openreplay.com/what-is-a-ci-cd-pipeline/)
 - [simform](https://www.simform.com/blog/what-is-cicd/)
+- [Utor](https://u-tor.com/topic/ci-cd-workflow-and-qa)
   
