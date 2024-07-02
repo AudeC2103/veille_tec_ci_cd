@@ -1,26 +1,28 @@
 
 # Rapport de Recherche : CI/CD (Continuous Integration/Continuous Deployment)
 
-## SOMMAIRE
-### Introduction
-### 1. Historique et évolution
-  #### 1. Origine de l'intégration continue
-  #### 2. Evolution vers le déploiement continue
-  #### 3. Perspectives futures
-### 2. Concepts de CI/CD
-  #### 1. Integration Continue (CI)
-  #### 2. Déploiement Continue (CD)
-### 3. Outils de CI/CD Populaires
-  #### 1. Jenkins
-  #### 2. GitHub Action
-  #### 3. GitLab CI
-### 4. Pipelines de build et de déploiement automatisé
-  #### 1. Processus du pipeline de build dans le CI
-  #### 2. Processus du pipeline de déploiement dans le CD
-### 5. Tests Automatisés et Intégration Continue
-  #### 1. Importance des Tests Automatisés
-  #### 2. Mise en Place de l'Intégration Continue
-### Conclusion
+SOMMAIRE
+## Introduction
+## 1. Historique et évolution
+  ### 1. Origine de l'intégration continue
+  ### 2. Evolution vers le déploiement continue
+  ### 3. Perspectives futures
+## 2. Concepts de CI/CD
+  ### 1. Integration Continue (CI)
+  ### 2. Déploiement Continue (CD)
+## 3. Outils de CI/CD Populaires
+  ### 1. Outils d'Intégration Continue (CI)**
+  ### 2. Outils de Déploiement Continu (CD)**
+  ### 3. Outils de Gestion de Configuration**
+  ### 4. Outils de Monitoring et Feedback**
+  ### 5. Outils de Gestion de Projet et Documentation**
+## 4. Pipelines de build et de déploiement automatisé
+  ### 1. Processus du pipeline de build dans le CI
+  ### 2. Processus du pipeline de déploiement dans le CD
+## 5. Tests Automatisés et Intégration Continue
+  ### 1. Importance des Tests Automatisés
+  ### 2. Mise en Place de l'Intégration Continue
+## Conclusion
 
 ---
 
@@ -100,7 +102,6 @@ Ces valeurs ont favorisé une approche plus flexible, itérative et collaborativ
   - **Expansion de l'Automatisation :** L'automatisation des pipelines CI/CD devrait continuer à croître, avec des innovations dans l'automatisation des tests, des déploiements et de la gestion des infrastructures.
   - **Interopérabilité et Standardisation :** Une meilleure interopérabilité entre les outils CI/CD et une standardisation des pratiques pourraient simplifier l'adoption et l'utilisation de ces technologies pour les équipes de développement.
 
-
 ## 2. Concepts de CI/CD
 
 ### 1. Intégration Continue (Continuous Integration - CI)
@@ -132,90 +133,76 @@ Ces valeurs ont favorisé une approche plus flexible, itérative et collaborativ
 - Maintenance continue nécessaire
 - Gestion de la complexité dans les grands projets
 
-
-\`\`\`yaml
-#### Exemple de configuration de Jenkins pour l'intégration continue
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                sh 'make build'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                sh 'make test'
-            }
-        }
-    }
-}
-\`\`\`
-
 ### 2. Déploiement Continu (Continuous Deployment - CD)
 
 Le déploiement continu va au-delà de l'intégration continue en automatisant le déploiement du code validé en production. Chaque modification validée passe par un pipeline automatisé et, si elle réussit toutes les étapes, est déployée automatiquement.
 
-- **But** : Livrer rapidement et en toute sécurité des fonctionnalités aux utilisateurs finaux.
-- **Processus** : Comprend des tests automatisés approfondis, des vérifications de sécurité, et des étapes de déploiement.
+**C'est quoi**
+Automatisation du déploiement > 
+des modifications de code
+Livraison continue de nouvelles fonctionnalités 
+aux utilisateurs
 
-\`\`\`yaml
-##### Exemple de configuration GitHub Actions pour le déploiement continu
-name: CI/CD Pipeline
+**Aspects Clés**
+Pipeline de déploiement automatisé 
+Tests automatisés / validation avant déploiement
+Déploiements fréquents 
+Surveillance et retour d'information > performances > erreurs post-déploiement
 
-on:
-  push:
-    branches:
-      - main
+**But**
+Livrer rapidement et en toute sécurité des fonctionnalités aux utilisateurs finaux
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+**Avantages**
+Temps de mise sur le marché réduit
+Retour rapide des utilisateurs
+Réduction des risques de déploiement
+Amélioration de la qualité logicielle
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+**Défis**
+Infrastructure complexe à mettre en place
+Exigence de haute qualité des tests
+Nécessité d'une culture DevOps forte
+Gestion des déploiements dans des environnements multiples
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run tests
-        run: npm test
-
-      - name: Deploy to production
-        run: npm run deploy
-        if: success()
-\`\`\`
-
+**Processus** : Comprend des tests automatisés approfondis, des vérifications de sécurité, et des étapes de déploiement.
 
 ## 3. Outils de CI/CD Populaires
 
-### 1. Jenkins
+### Types d'Outils de CI/CD
 
-Jenkins est un serveur open-source d'automatisation qui permet de mettre en place des pipelines de CI/CD. Il est très extensible grâce à ses nombreux plugins.
+**1. Outils d'Intégration Continue (CI)**
+- **Jenkins** : Serveur d'automatisation open-source pour pipelines CI.
+- **Travis CI** : Intégration continue pour projets GitHub, automatise les tests.
+- **CircleCI** : Plateforme CI rapide et flexible.
+- **Buildkite** : CI/CD performant et scalable, fonctionne sur votre infrastructure.
 
-- **Caractéristiques** : Open-source, extensible, large communauté.
-- **Cas d'utilisation** : Automatisation des builds, tests et déploiements.
+**2. Outils de Déploiement Continu (CD)**
+- **GitLab CI/CD** : Pipelines CI/CD complets intégrés dans GitLab.
+- **Spinnaker** : Déploiement continu multi-cloud.
+- **Octopus Deploy** : Déploiements sécurisés et répétables.
 
-### 2. GitHub Actions
+**3. Outils de Gestion de Configuration**
+- **Ansible** : Gestion et automatisation de la configuration.
+- **Chef** : Automatisation de l'infrastructure avec des recettes.
+- **Puppet** : Gestion cohérente et conforme des systèmes.
 
-GitHub Actions permet d'automatiser les workflows directement depuis le dépôt GitHub. Il est intégré à l'écosystème GitHub et permet de créer des pipelines CI/CD à l'aide de fichiers YAML.
+**4. Outils de Monitoring et Feedback**
+- **Prometheus** : Monitoring et alertes open-source.
+- **Grafana** : Visualisation de données et tableaux de bord.
+- **Datadog** : Monitoring des performances et analyse des infrastructures.
+- **New Relic** : Monitoring des performances en temps réel.
 
-- **Caractéristiques** : Intégré à GitHub, facile à configurer, large éventail d'actions.
-- **Cas d'utilisation** : Automatisation des tests, des builds et des déploiements.
+**5. Outils de Gestion de Projet et Documentation**
+- **Jira** : Gestion de projets agile et suivi des tâches.
+- **Confluence** : Collaboration et documentation centralisées.
 
-### 3. GitLab CI
-
-GitLab CI est intégré à GitLab et permet de configurer des pipelines CI/CD directement depuis le dépôt. Il offre des fonctionnalités avancées telles que la gestion des runners et le monitoring des pipelines.
-
-- **Caractéristiques** : Intégré à GitLab, complet, gestion des runners.
-- **Cas d'utilisation** : Automatisation complète du cycle de vie des applications.
+**6. Outils de Tests Automatisés**
+- **Jest** : Framework de tests JavaScript pour React, développé par Facebook. Simple et rapide.
+- **Selenium** : Outil open-source pour automatiser les tests des applications web sur différents navigateurs.
+- **JUnit** : Framework de tests pour Java, idéal pour les tests unitaires.
+- **Mocha** : Framework de tests JavaScript pour Node.js, flexible et asynchrone.
+- **Chai** : Bibliothèque d'assertions pour JavaScript, souvent utilisée avec Mocha.
+- **Cypress** : Framework de tests end-to-end pour les applications web, rapide et simple à utiliser.
 
 ## 4. Pipelines de build et de déploiement automatisé
 
