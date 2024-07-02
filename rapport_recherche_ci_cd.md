@@ -11,11 +11,8 @@ SOMMAIRE
   ### 1. Integration Continue (CI)
   ### 2. Déploiement Continue (CD)
 ## 3. Outils de CI/CD Populaires
-  ### 1. Outils d'Intégration Continue (CI)**
-  ### 2. Outils de Déploiement Continu (CD)**
-  ### 3. Outils de Gestion de Configuration**
-  ### 4. Outils de Monitoring et Feedback**
-  ### 5. Outils de Gestion de Projet et Documentation**
+  ### Types d'Outils de CI/CD
+  ### Outils populaires
 ## 4. Pipelines de build et de déploiement automatisé
   ### 1. Processus du pipeline de build dans le CI
   ### 2. Processus du pipeline de déploiement dans le CD
